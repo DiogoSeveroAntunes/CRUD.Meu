@@ -1,8 +1,10 @@
-package br.com.diogoAntunes.domain;
+package br.com.diogoAntunes.Client;
+
+import br.com.diogoAntunes.domain.IdentificadorDasClasses;
 
 import java.util.Objects;
 
-public class Cliente {
+public class Cliente implements IdentificadorDasClasses {
     public String nome;
     public Long cpf;
     public String estado;
@@ -68,6 +70,7 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -82,13 +85,18 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "\n Cliente{" +
                 "nome='" + nome + '\'' +
                 ", cpf=" + cpf +
                 ", estado='" + estado + '\'' +
                 ", telefone=" + telefone +
                 ", cidade='" + cidade + '\'' +
                 ", endereco='" + endereco + '\'' +
-                '}';
+                '}' + "\n";
+    }
+
+    @Override
+    public Long identificador() {
+        return this.cpf;
     }
 }
